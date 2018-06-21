@@ -1,37 +1,36 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
-public class TEST01
-{
+class Customer {
+    String name;
+    String id;
+    String pw;
+    
+    boolean login(String id, String pw) {
+       id = "";
+       pw = "";
+       if(id == "test" && pw =="1111") {
+          System.out.println("회원입니다.");
+          return true;
+       } else {
+          System.out.println("회원이 아닙니다.");
+          return false;
+       }   
+       
+       
+    }
+ }
+ public class TEST01 {
     public static void main(String[] args)
     {
-        int[] n = new int[]
-        { 1, 2, 3, 4, 5 };
-
-        printArr(n); // 배열의 모든요소를 출력
-        sortArr(n); // 배열을 정렬
-        printArr(n); // 정렬후 결과를 출력
-
+       Customer x = new Customer();
+       Scanner scan = new Scanner(System.in);
+       System.out.println("ID를 입력해주세요.");
+       String id = scan.nextLine();
+       System.out.println("PW를 입력해주세요.");
+       String pw = scan.nextLine();
+       
+       boolean result = x.login(id, pw);
+       
+       System.out.println(result);
     }
-
-    static void printArr(int[] n)
-    { // 배열을 모든요소를 출력
-        System.out.print("[");
-
-        for (int i : n) // 향상된 for문
-            System.out.print(i + ",");
-        System.out.println("]");
-    }
-
-    static void sortArr(int[] n)
-    { // 배열을 오름차순으로 정렬
-        for (int i = 0; i < n.length - 1; i++)
-            for (int j = 0; j < n.length - 1 - i; j++)
-                if (n[j] > n[j + 1])
-                {
-                    int tmp = n[j];
-                    n[j] = n[j + 1];
-                    n[j + 1] = tmp;
-
-                }
-    }
-}
+ }
