@@ -68,11 +68,16 @@ public class ServerFrame
         list.setBounds(31, 59, 567, 392);
         frame.getContentPane().add(list);
         
-        Component horizontalStrut = Box.createHorizontalStrut(20);
-        horizontalStrut.setBounds(33, 461, 744, 134);
-        frame.getContentPane().add(horizontalStrut);
+        List list_1 = new List();
+        list_1.setBounds(33, 483, 914, 135);
+        frame.getContentPane().add(list_1);
+        
+        JLabel label_1 = new JLabel("전송정보");
+        label_1.setBounds(33, 462, 57, 15);
+        frame.getContentPane().add(label_1);
         
         JMenuBar menuBar = new JMenuBar();
+        menuBar.setToolTipText("");
         frame.setJMenuBar(menuBar);
     }
 }
