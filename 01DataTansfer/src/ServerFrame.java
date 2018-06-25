@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import java.awt.List;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JTree;
+import javax.swing.JList;
 
 public class ServerFrame
 {
@@ -64,10 +66,6 @@ public class ServerFrame
         frame.getContentPane().add(textField);
         textField.setColumns(10);
         
-        List list = new List();
-        list.setBounds(31, 59, 567, 392);
-        frame.getContentPane().add(list);
-        
         List list_1 = new List();
         list_1.setBounds(33, 483, 914, 135);
         frame.getContentPane().add(list_1);
@@ -75,6 +73,22 @@ public class ServerFrame
         JLabel label_1 = new JLabel("전송정보");
         label_1.setBounds(33, 462, 57, 15);
         frame.getContentPane().add(label_1);
+        
+        JLabel lblNewLabel = new JLabel("현재접속자");
+        lblNewLabel.setBounds(638, 25, 77, 15);
+        frame.getContentPane().add(lblNewLabel);
+        
+        JTree tree = new JTree();
+        tree.setBounds(35, 60, 188, 391);
+        frame.getContentPane().add(tree);
+        
+        JList list = new JList();
+        list.setBounds(235, 60, 363, 391);
+        frame.getContentPane().add(list);
+        
+        JList list_2 = new JList();
+        list_2.setBounds(638, 60, 302, 391);
+        frame.getContentPane().add(list_2);
         
         JMenuBar menuBar = new JMenuBar();
         menuBar.setToolTipText("");
