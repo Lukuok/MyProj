@@ -78,7 +78,7 @@ public class ServerFrame
         lblNewLabel.setBounds(638, 25, 77, 15);
         frame.getContentPane().add(lblNewLabel);
         
-        JTree tree = new JTree();
+         JTree tree = new JTree();
         tree.setBounds(35, 60, 188, 391);
         frame.getContentPane().add(tree);
         
@@ -93,5 +93,7 @@ public class ServerFrame
         JMenuBar menuBar = new JMenuBar();
         menuBar.setToolTipText("");
         frame.setJMenuBar(menuBar);
+        
+        //폴더 리스트
     }
 }
