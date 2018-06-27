@@ -1,17 +1,15 @@
 import java.awt.EventQueue;
+import java.io.File;
 
 import javax.swing.JFrame;
-import javax.swing.JToolBar;
 import javax.swing.JLabel;
-import java.awt.Component;
-import javax.swing.Box;
-import java.awt.Dimension;
-import javax.swing.JTextField;
-import java.awt.List;
-import javax.swing.JMenuBar;
-import javax.swing.JPanel;
-import javax.swing.JTree;
 import javax.swing.JList;
+import javax.swing.JMenuBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 public class ServerFrame
 {
@@ -66,10 +64,6 @@ public class ServerFrame
         frame.getContentPane().add(textField);
         textField.setColumns(10);
         
-        List list_1 = new List();
-        list_1.setBounds(33, 483, 914, 135);
-        frame.getContentPane().add(list_1);
-        
         JLabel label_1 = new JLabel("전송정보");
         label_1.setBounds(33, 462, 57, 15);
         frame.getContentPane().add(label_1);
@@ -78,8 +72,10 @@ public class ServerFrame
         lblNewLabel.setBounds(638, 25, 77, 15);
         frame.getContentPane().add(lblNewLabel);
         
-         JTree tree = new JTree();
+        //디렉토리 리스트
+        JTree tree = new JTree();
         tree.setBounds(35, 60, 188, 391);
+        initJtree(tree);
         frame.getContentPane().add(tree);
         
         JList list = new JList();
@@ -94,6 +90,52 @@ public class ServerFrame
         menuBar.setToolTipText("");
         frame.setJMenuBar(menuBar);
         
-        //폴더 리스트
+
+    }
+    
+    //폴더 리스트 초기화
+    private void initJtree(JTree tree)
+    {
+        DefaultMutableTreeNode root;
+        DefaultTreeModel       treeModel;
+        
+        File fileRoot = new File("C:/");
+        root          = new DefaultMutableTreeNode(new FileNode(fileRoot));
+        treeModel     = new DefaultTreeModel(root);
+        tree = new JTree(treeModel);
+        tree.setShowsRootHandles(true);
+        JScrollPane scrollPane = new JScrollPane(tree);
+
+        // 파일 리스트 생성하는 다른 방법
+        /*
+        File[] file = File.listRoots(); // 루트배열을 생성
+        for (int i = 0; i < file.length; i++)
+        {// 루트길이 만큼 반복
+            DefaultMutableTreeNode dmt = new DefaultMutableTreeNode(file[i]);// 트리목록 생성
+            dmt.add(new DefaultMutableTreeNode("EMPTY")); // 초기값은 EMPTY로 설정하여 추가
+            root.add(dmt); // 루트 트리에 목록 추가
+        }
+        */
+        System.out.println("폴더리스트 확인");
+        
+    }
+    
+    class FileNode {
+
+        private File file;
+
+        public FileNode(File file) {
+            this.file = file;
+        }
+
+        @Override
+        public String toString() {
+            String name = file.getName();
+            if (name.equals("")) {
+                return file.getAbsolutePath();
+            } else {
+                return name;
+            }
+        }
     }
 }
