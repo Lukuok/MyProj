@@ -102,5 +102,4 @@ public class FileBrowser implements Runnable
             }
         }
     }
-
 }
