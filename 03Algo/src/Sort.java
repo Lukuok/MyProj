@@ -3,17 +3,19 @@ public class Sort
 {
     public static void main(String[] args)
     {
-        final int arr[] = { 4, 54, 2, 8, 63, 7, 55, 56 };
+        final int arr[] = { 4, 54, 2, 8, 40, 7, 1, 56 };
 //        insertionSort(arr);
         
         System.out.println();
         
-        bubbleSort(arr);
+        insertionSort(arr);
     }
 
     /*
-     * 선택정렬 제자리 정렬 알고리즘의 하나로, 전체 원소들 중에서 기준 위치에 맞는 원소를 선택하여 자리를 교환하는 방식 1. 주어진 원소중
-     * 최소값을 찾는다. 2. 그 값을 첫 번째 원소와 교환 한다. 3. 그 다음 작은 원소를 찾아 다음 위치의 원소와 비교하여 교환한다.
+     * 선택정렬 제자리 정렬 알고리즘의 하나로, 전체 원소들 중에서 기준 위치에 맞는 원소를 선택하여 자리를 교환하는 방식 
+     * 1. 주어진 원소중 최소값을 찾는다. 
+     * 2. 그 값을 첫 번째 원소와 교환 한다. 
+     * 3. 그 다음 작은 원소를 찾아 다음 위치의 원소와 비교하여 교환한다.
      */
     public static void insertionSort(int[] data)
     {
@@ -66,6 +68,5 @@ public class Sort
             if(sort==false) break;
             SortUtil.pArr(i, arr);
         }
-        System.out.println(cnt);
     }
 }
